@@ -6,6 +6,7 @@ spring:
     config:
       server:
         git:
-          uri: file://${user.home}/config-repo
+          uri: https://github.com/ch88251/spring-cloud-weather
+          search-paths: config-repo
   application:
     name: Config Server
