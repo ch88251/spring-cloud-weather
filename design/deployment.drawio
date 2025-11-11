@@ -1,0 +1,58 @@
+<mxfile host="65bd71144e">
+    <diagram id="deployment" name="Deployment">
+        <mxGraphModel dx="739" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" background="#FFFFFF" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="config" value="Config Server\n:8888" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F08080;strokeColor=#000000;fontSize=14;fontFamily=Arial;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="60" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="eureka" value="Eureka Server\n:8761" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ADD8E6;strokeColor=#000000;fontSize=14;fontFamily=Arial;" parent="1" vertex="1">
+                    <mxGeometry x="650" y="60" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="weather" value="Weather Service\n:8080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9A8;strokeColor=#000000;fontSize=14;fontFamily=Arial;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="400" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="forecast" value="Forecast Service\n:8082" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90EE90;strokeColor=#000000;fontSize=14;fontFamily=Arial;" parent="1" vertex="1">
+                    <mxGeometry x="760" y="400" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-weather-eureka" value="Register" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;fontSize=12;fontFamily=Arial;entryX=0.379;entryY=1.017;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" parent="1" source="weather" target="eureka" edge="1">
+                    <mxGeometry x="0.001" y="10" relative="1" as="geometry">
+                        <mxPoint x="360" y="240" as="sourcePoint"/>
+                        <mxPoint x="600" y="240" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="400" y="370"/>
+                            <mxPoint x="711" y="370"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-forecast-eureka" value="Register" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;fontSize=12;fontFamily=Arial;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="forecast" target="eureka" edge="1">
+                    <mxGeometry x="-0.0294" y="-25" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-weather-config" value="Fetch Config" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;fontSize=12;fontFamily=Arial;" parent="1" source="weather" target="config" edge="1">
+                    <mxGeometry y="25" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-forecast-config" value="Fetch Config" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;fontSize=12;fontFamily=Arial;" parent="1" target="config" edge="1">
+                    <mxGeometry x="-0.0175" y="-10" relative="1" as="geometry">
+                        <mxPoint x="810" y="400" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="810" y="320"/>
+                            <mxPoint x="510" y="320"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="edge-forecast-weather" value="Feign / GET /api/weather/{city}" style="endArrow=block;dashed=1;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;fontSize=12;fontFamily=Arial;strokeColor=#555555;" parent="1" source="forecast" target="weather" edge="1">
+                    <mxGeometry y="-25" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
