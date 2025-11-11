@@ -98,21 +98,4 @@ cd forecast-service
 
 - Registers with Eureka as `forecast-service` (port 8082)
 - Uses an OpenFeign client targeting the Eureka service id `weather-service`
-- Note: The provided `ForecastController` is currently a scaffold without an external endpoint. Add your own controller method to call the `WeatherClient` if you want to expose forecast endpoints.
 
-## Building runnable JARs (optional)
-
-You can also build executable jars for each service:
-
-```bash
-cd config-server && ./gradlew bootJar
-cd ../eureka-server && ./gradlew bootJar
-cd ../weather-service && ./gradlew bootJar
-cd ../forecast-service && ./gradlew bootJar
-```
-
-Run them with:
-
-```bash
-java -jar build/libs/*-SNAPSHOT.jar
-```
